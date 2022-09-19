@@ -2,10 +2,10 @@
 
 * **Nature Methods**
     * [Guideline](https://www.nature.com/nmeth/submission-guidelines)
-    * [Latex](https://www.springernature.com/gp/authors/campaigns/latex-author-support) (last updated 2022.09.15)
+    * [Latex](sn-article-template.zip) (last updated 2022.09.15 from [web](https://www.springernature.com/gp/authors/campaigns/latex-author-support))
 
 * **Nature Communication**
-    * [**Word**]([Nature_Communications_Submission_Template_2020.docx])
+    * [Word](Nature_Communications_Submission_Template_2020.docx)
 * **PLOS computational biology**
     * [Guideline](https://journals.plos.org/ploscompbiol/s/submission-guidelines) 
     * [Latex](plos-latex-template.zip)   (last updated 2022.09.15)
