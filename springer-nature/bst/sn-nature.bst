@@ -1023,7 +1023,7 @@ FUNCTION {format.vol.num.pages}
     }
   if$
   bolden
-  format.number
+%  format.number
   format.journal.pages
 }
 
@@ -1305,14 +1305,15 @@ FUNCTION {article}
   new.block
   format.url output
   new.block
-  format.doi output
+  %%  format.doi output
   format.note output
   %%format.eprint output
-  format.soft.eprint output
-  add.blank
-  format.primaryClass output
+  %%  format.soft.eprint output
+  %%  add.blank
+  %%  format.primaryClass output
   fin.entry
 }
+
 FUNCTION {book}
 { output.bibitem
   author empty$

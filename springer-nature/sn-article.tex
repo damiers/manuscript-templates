@@ -1,4 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Version 3 October 2023
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                 %%
 %% Please do not use \input{...} to include other tex files.       %%
 %% Submit your LaTeX manuscript as one .tex document.              %%
@@ -22,18 +25,36 @@
 
 %%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
 
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove “Numbered” in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-vancouver.bst, sn-chicago.bst%  
+ 
+%%\documentclass[sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
 %%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
-\documentclass[sn-mathphys]{sn-jnl}% Math and Physical Sciences Reference Style
+\documentclass[sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style 
+%%\documentclass[sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
 %%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
-%%\documentclass[sn-vancouver]{sn-jnl}% Vancouver Reference Style
-%%\documentclass[sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[sn-vancouver,Numbered]{sn-jnl}% Vancouver Reference Style
+%%\documentclass[sn-apa]{sn-jnl}% APA Reference Style 
 %%\documentclass[sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
-%%\documentclass[sn-standardnature]{sn-jnl}% Standard Nature Portfolio Reference Style
-%%\documentclass[default]{sn-jnl}% Default
-%%\documentclass[default,iicol]{sn-jnl}% Default with double column layout
 
 %%%% Standard Packages
 %%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
 %%%%
 
 %%%%%=============================================================================%%%%
@@ -48,8 +69,6 @@
 %%%%  of the journal take precedence. A detailed User Manual is available in the 
 %%%%  template package for technical guidance.
 %%%%%=============================================================================%%%%
-
-\jyear{2021}%
 
 %% as per the requirement new theorem styles can be included as shown below
 \theoremstyle{thmstyleone}%
@@ -74,15 +93,12 @@
 \title[Article Title]{Article Title}
 
 %%=============================================================%%
-%% Prefix	-> \pfx{Dr}
 %% GivenName	-> \fnm{Joergen W.}
 %% Particle	-> \spfx{van der} -> surname prefix
 %% FamilyName	-> \sur{Ploeg}
 %% Suffix	-> \sfx{IV}
-%% NatureName	-> \tanm{Poet Laureate} -> Title after name
-%% Degrees	-> \dgr{MSc, PhD}
-%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate} 
-%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
 %%=============================================================%%
 
 \author*[1,2]{\fnm{First} \sur{Author}}\email{iauthor@gmail.com}
@@ -100,7 +116,7 @@
 \affil[3]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{610101}, \state{State}, \country{Country}}}
 
 %%==================================%%
-%% sample for unstructured abstract %%
+%% Sample for unstructured abstract %%
 %%==================================%%
 
 \abstract{The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.}
@@ -182,8 +198,6 @@ The footnote appears just below the table itself (refer Tables~\ref{tab1} and \r
 For the corresponding footnotemark use \verb+\footnotemark[...]+
 
 \begin{table}[h]
-\begin{center}
-\begin{minipage}{174pt}
 \caption{Caption text}\label{tab1}%
 \begin{tabular}{@{}llll@{}}
 \toprule
@@ -197,8 +211,6 @@ row 3    & data 7   & data 8  & data 9\footnotemark[2]  \\
 \footnotetext{Source: This is an example of table footnote. This is an example of table footnote.}
 \footnotetext[1]{Example for a first table footnote. This is an example of table footnote.}
 \footnotetext[2]{Example for a second table footnote. This is an example of table footnote.}
-\end{minipage}
-\end{center}
 \end{table}
 
 \noindent
@@ -206,13 +218,11 @@ The input format for the above table is as follows:
 
 %%=============================================%%
 %% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
+%% \bigskip command. Please ignore this.       %%
 %%=============================================%%
 \bigskip
 \begin{verbatim}
 \begin{table}[<placement-specifier>]
-\begin{center}
-\begin{minipage}{<preferred-table-width>}
 \caption{<table-caption>}\label{<table-label>}%
 \begin{tabular}{@{}llll@{}}
 \toprule
@@ -229,21 +239,17 @@ This is an example of table footnote.}
 This is an example of table footnote.}
 \footnotetext[2]{Example for a second table footnote. 
 This is an example of table footnote.}
-\end{minipage}
-\end{center}
 \end{table}
 \end{verbatim}
 \bigskip
 %%=============================================%%
 %% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
+%% \bigskip command. Please ignore this.       %%
 %%=============================================%%
 
 \begin{table}[h]
-\begin{center}
-\begin{minipage}{\textwidth}
 \caption{Example of a lengthy table which is set to full textwidth}\label{tab2}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccc@{\extracolsep{\fill}}}
+\begin{tabular*}{\textwidth}{@{\extracolsep\fill}lcccccc}
 \toprule%
 & \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]} & \multicolumn{3}{@{}c@{}}{Element 2\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
 Project & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
@@ -255,18 +261,13 @@ Element 4  & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$\\
 \footnotetext{Note: This is an example of table footnote. This is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
 \footnotetext[1]{Example for a first table footnote.}
 \footnotetext[2]{Example for a second table footnote.}
-\end{minipage}
-\end{center}
 \end{table}
 
 In case of double column layout, tables which do not fit in single column width should be set to full text width. For this, you need to use \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ instead of \verb+\begin{table}+ \verb+...+ \verb+\end{table}+ environment. Lengthy tables which do not fit in textwidth should be set as rotated table. For this, you need to use \verb+\begin{sidewaystable}+ \verb+...+ \verb+\end{sidewaystable}+ instead of \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ environment. This environment puts tables rotated to single column width. For tables rotated to double column width, use \verb+\begin{sidewaystable*}+ \verb+...+ \verb+\end{sidewaystable*}+.
 
 \begin{sidewaystable}
-\sidewaystablefn%
-\begin{center}
-\begin{minipage}{\textheight}
 \caption{Tables which are too long to fit, should be written using the ``sidewaystable'' environment as shown here}\label{tab3}
-\begin{tabular*}{\textheight}{@{\extracolsep{\fill}}lcccccc@{\extracolsep{\fill}}}
+\begin{tabular*}{\textheight}{@{\extracolsep\fill}lcccccc}
 \toprule%
 & \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]}& \multicolumn{3}{@{}c@{}}{Element\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
 Projectile & Energy	& $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
@@ -279,8 +280,6 @@ Element 6 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
 \end{tabular*}
 \footnotetext{Note: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
 \footnotetext[1]{This is an example of table footnote.}
-\end{minipage}
-\end{center}
 \end{sidewaystable}
 
 \section{Figures}\label{sec6}
@@ -289,7 +288,7 @@ As per the \LaTeX\ standards you need to use eps images for \LaTeX\ compilation 
 
 %%=============================================%%
 %% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
+%% \bigskip command. Please ignore this.       %%
 %%=============================================%%
 \bigskip
 \begin{verbatim}
@@ -302,10 +301,10 @@ As per the \LaTeX\ standards you need to use eps images for \LaTeX\ compilation 
 \bigskip
 %%=============================================%%
 %% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
+%% \bigskip command. Please ignore this.       %%
 %%=============================================%%
 
-\begin{figure}[h]%
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{fig.eps}
 \caption{This is a widefig. This is an example of long caption this is an example of long caption  this is an example of long caption this is an example of long caption}\label{fig1}
@@ -321,7 +320,7 @@ Packages \verb+algorithm+, \verb+algorithmicx+ and \verb+algpseudocode+ are used
 
 %%=============================================%%
 %% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
+%% \bigskip command. Please ignore this.       %%
 %%=============================================%%
 \bigskip
 \begin{verbatim}
@@ -335,29 +334,33 @@ Packages \verb+algorithm+, \verb+algorithmicx+ and \verb+algpseudocode+ are used
 \bigskip
 %%=============================================%%
 %% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
+%% \bigskip command. Please ignore this.       %%
 %%=============================================%%
 
-You may refer above listed package documentations for more details before setting \verb+algorithm+ environment. For program codes, the ``program'' package is required and the command to be used is \verb+\begin{program}+ \verb+...+ \verb+\end{program}+. A fast exponentiation procedure:
+You may refer above listed package documentations for more details before setting \verb+algorithm+ environment. For program codes, the ``verbatim'' package is required and the command to be used is \verb+\begin{verbatim}+ \verb+...+ \verb+\end{verbatim}+. 
 
-\begin{program}
-\BEGIN \\ %
-  \FOR i:=1 \TO 10 \STEP 1 \DO
-     |expt|(2,i); \\ |newline|() \OD %
-\rcomment{Comments will be set flush to the right margin}
-\WHERE
-\PROC |expt|(x,n) \BODY
-          z:=1;
-          \DO \IF n=0 \THEN \EXIT \FI;
-             \DO \IF |odd|(n) \THEN \EXIT \FI;
-\COMMENT{This is a comment statement};
-                n:=n/2; x:=x*x \OD;
-             \{ n>0 \};
-             n:=n-1; z:=z*x \OD;
-          |print|(z) \ENDPROC
-\END
-\end{program}
+Similarly, for \verb+listings+, use the \verb+listings+ package. \verb+\begin{lstlisting}+ \verb+...+ \verb+\end{lstlisting}+ is used to set environments similar to \verb+verbatim+ environment. Refer to the \verb+lstlisting+ package documentation for more details.
 
+A fast exponentiation procedure:
+
+\lstset{texcl=true,basicstyle=\small\sf,commentstyle=\small\rm,mathescape=true,escapeinside={(*}{*)}}
+\begin{lstlisting}
+begin
+  for $i:=1$ to $10$ step $1$ do
+      expt($2,i$);  
+      newline() od                (*\textrm{Comments will be set flush to the right margin}*)
+where
+proc expt($x,n$) $\equiv$
+  $z:=1$;
+  do if $n=0$ then exit fi;
+     do if odd($n$) then exit fi;                 
+        comment: (*\textrm{This is a comment statement;}*)
+        $n:=n/2$; $x:=x*x$ od;
+     { $n>0$ };
+     $n:=n-1$; $z:=z*x$ od;
+  print($z$). 
+end
+\end{lstlisting}
 
 \begin{algorithm}
 \caption{Calculate $y = x^n$}\label{algo1}
@@ -383,17 +386,10 @@ You may refer above listed package documentations for more details before settin
 \EndWhile
 \end{algorithmic}
 \end{algorithm}
-\bigskip
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
-
-Similarly, for \verb+listings+, use the \verb+listings+ package. \verb+\begin{lstlisting}+ \verb+...+ \verb+\end{lstlisting}+ is used to set environments similar to \verb+verbatim+ environment. Refer to the \verb+lstlisting+ package documentation for more details.
 
 %%=============================================%%
 %% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
+%% \bigskip command. Please ignore this.       %%
 %%=============================================%%
 \bigskip
 \begin{minipage}{\hsize}%
@@ -429,7 +425,8 @@ Standard \LaTeX\ permits only numerical citations. To support both numerical and
 
 Here is an example for \verb+\cite{...}+: \cite{bib1}. Another example for \verb+\citep{...}+: \citep{bib2}. For author-year citation mode, \verb+\cite{...}+ prints Jones et al. (1990) and \verb+\citep{...}+ prints (Jones et al., 1990).
 
-All cited bib entries are printed at the end of this article: \cite{bib3}, \cite{bib4}, \cite{bib5}, \cite{bib6}, \cite{bib7}, \cite{bib8}, \cite{bib9}, \cite{bib10}, \cite{bib11} and \cite{bib12}.
+All cited bib entries are printed at the end of this article: \cite{bib3}, \cite{bib4}, \cite{bib5}, \cite{bib6}, \cite{bib7}, \cite{bib8}, \cite{bib9}, \cite{bib10}, \cite{bib11}, \cite{bib12} and \cite{bib13}.
+
 
 \section{Examples for theorem like environments}\label{sec10}
 
@@ -437,7 +434,7 @@ For theorem like environments, we require \verb+amsthm+ package. There are three
 
 %%=============================================%%
 %% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
+%% \bigskip command. Please ignore this.       %%
 %%=============================================%%
 \bigskip
 \begin{tabular}{|l|p{19pc}|}
@@ -449,7 +446,7 @@ For theorem like environments, we require \verb+amsthm+ package. There are three
 \bigskip
 %%=============================================%%
 %% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
+%% \bigskip command. Please ignore this.       %%
 %%=============================================%%
 
 For mathematics journals, theorem styles can be included as shown in the following examples:
@@ -546,9 +543,9 @@ Authors reporting data from electrophoretic gels and blots should supply the ful
 
 Please refer to Journal-level guidance for any specific requirements.
 
-\bmhead{Acknowledgments}
+\bmhead{Acknowledgements}
 
-Acknowledgments are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
+Acknowledgements are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
 
 Please refer to Journal-level guidance for any specific requirements.
 
@@ -559,12 +556,12 @@ Some journals require declarations to be submitted in a standardised format. Ple
 \begin{itemize}
 \item Funding
 \item Conflict of interest/Competing interests (check journal-specific guidelines for which heading to use)
-\item Ethics approval 
-\item Consent to participate
+\item Ethics approval and consent to participate
 \item Consent for publication
-\item Availability of data and materials
+\item Data availability 
+\item Materials availability
 \item Code availability 
-\item Authors' contributions
+\item Author contribution
 \end{itemize}
 
 \noindent
@@ -572,7 +569,7 @@ If any of the sections are not relevant to your manuscript, please include the h
 
 %%===================================================%%
 %% For presentation purpose, we have included        %%
-%% \bigskip command. please ignore this.             %%
+%% \bigskip command. Please ignore this.             %%
 %%===================================================%%
 \bigskip
 \begin{flushleft}%
@@ -624,7 +621,5 @@ An appendix contains supplementary information that is not an essential part of 
 %% if required, the content of .bbl file can be included here once bbl is generated
 %%\input sn-article.bbl
 
-%% Default %%
-%%\input sn-sample-bib.tex%
 
 \end{document}

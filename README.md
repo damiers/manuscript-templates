@@ -2,7 +2,7 @@
 
 * **Nature Methods**
     * [Guideline](https://www.nature.com/nmeth/submission-guidelines)
-    * [Latex](sn-article-template.zip) (last updated 2022.09.15 from [web](https://www.springernature.com/gp/authors/campaigns/latex-author-support))
+    * [Latex](sn-article-template.zip) (last updated 2023.12 from [web](https://www.springernature.com/gp/authors/campaigns/latex-author-support))
 
 * **Nature Communication**
     * [Word](Nature_Communications_Submission_Template_2020.docx)
