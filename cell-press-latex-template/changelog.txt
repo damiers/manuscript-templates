@@ -1,0 +1,10 @@
+CHANGELOG
+
+12/02/2024: v.1.10. Updates to reflect journals switching from 
+"experimental procedures" to "methods."
+
+8/21/24: v.1.9. In author contributions, changed "en dash with spaces on either side" to em dash (correct); moved RESOURCE AVAILABILITY section to its new location; deployed Andrew Hufton's fixes for data and conference proceeding references.
+
+7/19/24: Added package { orcidlink }, updated reference examples and adjusted some formatting
+
+
